@@ -1,0 +1,2 @@
+obj\Release\netcoreapp3.1\linux-x64/HelloWorld.cs \
+obj\Release\netcoreapp3.1\linux-x64/HelloWorldGrpc.cs: ../Protos/HelloWorld.proto

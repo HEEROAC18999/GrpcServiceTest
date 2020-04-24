@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServiceTest.Services";
+
+package HelloWorld;//定义包名
+
+//定义服务
+service HelloWorld {
+  //定义方法
+  rpc SayHello (HelloRequest) returns (HelloResponse);
+}
+
+//请求消息体
+message HelloRequest {
+  string username = 1;
+}
+
+//返回消息体
+message HelloResponse {
+  string message = 1;
+}
