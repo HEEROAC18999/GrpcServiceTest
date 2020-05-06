@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Consul;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -22,6 +23,8 @@ namespace GrpcServiceServer
             {
                 options.EnableEndpointRouting = false;
             });
+            var consulClient = new ConsulClient(c => c.Address = new Uri("http://192.168.70.52:8500"));
+            var consulServices = consulClient.Catalog.Services();
             //services.AddConsul("http://192.168.70.52:8500");
         }
 
@@ -43,6 +46,8 @@ namespace GrpcServiceServer
                 });
             });
             app.UseMvc();
+
+
         }
     }
 }

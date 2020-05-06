@@ -14,8 +14,6 @@ namespace GrpcServiceServer
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-            var consulClient = new ConsulClient(c => c.Address = new Uri("http://192.168.70.52:8500"));
-            var services = consulClient.Catalog.Services();
         }
 
         // Additional configuration is required to successfully run gRPC on macOS.
